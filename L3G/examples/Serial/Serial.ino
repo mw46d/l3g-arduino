@@ -4,12 +4,11 @@
 L3G gyro;
 
 void setup() {
-  Serial.begin(9600);
-  Wire.begin();
+  SerialUSB.begin();
+  Wire.begin(14, 15);
 
-  if (!gyro.init())
-  {
-    Serial.println("Failed to autodetect gyro type!");
+  if (!gyro.init()) {
+    SerialUSB.println("Failed to autodetect gyro type!");
     while (1);
   }
 
@@ -19,13 +18,13 @@ void setup() {
 void loop() {
   gyro.read();
 
-  Serial.print("G ");
-  Serial.print("X: ");
-  Serial.print((int)gyro.g.x);
-  Serial.print(" Y: ");
-  Serial.print((int)gyro.g.y);
-  Serial.print(" Z: ");
-  Serial.println((int)gyro.g.z);
+  SerialUSB.print("G ");
+  SerialUSB.print("X: ");
+  SerialUSB.print((int)gyro.g.x);
+  SerialUSB.print(" Y: ");
+  SerialUSB.print((int)gyro.g.y);
+  SerialUSB.print(" Z: ");
+  SerialUSB.println((int)gyro.g.z);
 
   delay(100);
 }

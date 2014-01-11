@@ -1,7 +1,12 @@
 #ifndef L3G_h
 #define L3G_h
 
+#ifdef __ARMEL__				// CM-900 
+#include <stdint.h>
+typedef uint8_t byte;
+#else						// Arduino
 #include <Arduino.h> // for byte data type
+#endif
 
 // device types
 

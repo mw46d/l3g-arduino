@@ -1,4 +1,4 @@
-h1. Arduino library for Pololu L3G4200D and L3GD20 boards
+h1. Robotis CM-900 (originally for Arduino) library for Pololu L3G4200D and L3GD20 boards
 
 Version: 1.2.1
 Release Date: 2012-10-31
@@ -6,7 +6,7 @@ Release Date: 2012-10-31
 
 h2. Summary
 
-This is a library for the "Arduino":http://pololu.com/catalog/product/2191 that interfaces with L3G4200D and L3GD20 gyros on Pololu boards. It makes it simple to read the raw gyro data from these boards:
+This is a library for the "Robotis CM-900 series":http://www.robotsource.org/bs/bd.php?bt=forum_CM9DeveloperWorld that interfaces with L3G4200D and L3GD20 gyros on Pololu boards. It makes it simple to read the raw gyro data from these boards:
 
 * "L3GD20 3-axis gyro carrier":http://www.pololu.com/catalog/product/2125
 * "L3G4200D 3-axis gyro carrier":http://www.pololu.com/catalog/product/1272
@@ -20,23 +20,21 @@ h2. Getting Started
 
 h3. Software
 
+I will probably not find all the places where the original code mentions the Arduino, but this fork is really adapted to the CM-900.
+
 Download the archive from "GitHub":https://github.com/pololu/L3G, decompress it, and move the "L3G" folder into the "libraries" subdirectory inside your Arduino sketchbook directory. You can view your sketchbook location by selecting File->Preferences in the Arduino environment; if there is not already a "libraries" folder in that location, you should create it yourself. After installing the library, restart the Arduino environment so it can find the L3G library and its example.
 
 h3. Hardware
 
-Make the following connections with wires between the Arduino and the L3G4200D/L3GD20 board:
+Make the following connections with wires between the CM-900 and the L3G4200D/L3GD20 board:
 
-pre. Arduino Uno/Duemilanove     L3G4200D/L3GD20 board
-                    5V  ->  VIN
+pre. CM-900                      L3G4200D/L3GD20 board
+                  3.3V  ->  VIN
                    GND  ->  GND
-          Analog Pin 5  ->  SCL
-          Analog Pin 4  ->  SDA
+        Digital Pin 15  ->  SCL
+        Digital Pin 14  ->  SDA
 
-pre. Arduino Mega                L3G4200D/L3GD20 board
-                    5V  ->  VIN
-                   GND  ->  GND
-        Digital Pin 21  ->  SCL
-        Digital Pin 20  ->  SDA
+Other pin assignments will probably work as well. You will just have to adapt the Wire.begin() statements accordingly.
 
 h2. Example Programs
 
